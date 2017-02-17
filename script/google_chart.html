@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script><!-- google chart -->
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+	        var data = google.visualization.arrayToDataTable([
+	          ['Year', 'exampl1', 'example2', 'example3'],
+	          ['2013.12', 10, 1, 2],
+	          ['2014.01', 9, 2, 4],
+	          ['2014.02', 8, 3, 8],
+	          ['2014.03', 7, 4, 10]
+	        ]);
+	        var options = {
+	          title: 'Statistics'
+	        };
+	        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+	        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>

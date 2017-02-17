@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html> 
+<head>  
+<title></title> 
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script> 
+<style> 
+* {padding:0; margin:0;} 
+table { 
+   border-collapse: collapse; 
+   border-spacing: 0; 
+} 
+table tr td {border:1px solid #ccc; padding:3px;} 
+</style> 
+<script> 
+$(function(){ 
+   $("#del").click(function() { 
+      if($("input").is(":checked") == true){ 
+         var i = $("input:checked").parents("tr"); 
+         var e = i.next("tr"); 
+         i.hide(); 
+         e.hide(); 
+      } 
+   }); 
+   $("#add").click(function(){ 
+      $("table").append("<tr><td rowspan='2'><input type='checkbox'/></td><td>XSMALL</td><td>SMALL</td><td>MEDIUM</td></td><td>LARGE</td><td>XLARGE</td><td>2XLARGE</td></tr>"); 
+      $("table").append("<tr><td><input type='text' name='xsmall[]'/></td><td><input type='text' name='small[]'/></td><td><input type='text' name='medium[]'/></td><td><input type='text' name='large[]'/></td><td><input type='text' name='xlarge[]'/></td><td><input type='text' name='2xlarge[]'/></td></tr>"); 
+   }); 
+}); 
+
+</script> 
+</head> 
+<body>  
+
+<table> 
+	<tr> 
+		<td rowspan="2"><input type="checkbox"/></td> 
+		<td>XSMALL</td> 
+		<td>SMALL</td> 
+		<td>MEDIUM</td>
+		<td>LARGE</td> 
+		<td>XLARGE</td> 
+		<td>2XLARGE</td>
+	</tr> 
+	<tr> 
+	<td><input type='text' name='xsmall[]'/></td> 
+	<td><input type='text' name='small[]'/></td> 
+	<td><input type='text' name='medium[]'/></td> 
+	<td><input type='text' name='large[]'/></td> 
+	<td><input type='text' name='xlarge[]'/></td> 
+	<td><input type='text' name='2xlarge[]'/></td> 
+	</tr>
+</table> 
+
+<button type="button" id="add"/><FONT SIZE="5">plus</FONT></button> 
+<button type="button" id="del"/><FONT SIZE="5">minus</FONT></button>
+
+</body> 
+</html> 

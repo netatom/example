@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.7.1.min.js'></script>
+<script language='javascript' type='text/javascript'>
+$(function(){
+    var valueElement = $('#value');
+    function incrementValue(e){
+        valueElement.text(Math.max(parseInt(valueElement.text()) + e.data.increment, 0));
+        return false;
+    }
+    $('#plus').bind('click', {increment: 1}, incrementValue);
+    $('#minus').bind('click', {increment: -1}, incrementValue);
+});
+</script>
+    </head>
+    <body>
+		<a id="plus" href="#">Number Plus</a>
+	<a id="minus" href="#">Number Minus</a>
+	<span id="value">0</span>
+    </body>
+</html>

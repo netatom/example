@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8;">
+<title>layer popup</title>
+
+<style type="text/css">
+html, body{height:100%;margin:0}
+.mylayer{display:none;position:fixed;_position:absolute;top:0;left:0;z-index:10000;width:100%;height:100%}
+.mylayer.open{display:block}
+.mylayer.bg{position:absolute;top:0;left:0;width:100%;height:100%;background:#000;opacity:.5;filter:alpha(opacity=50)}
+#layer{position:absolute;top:50%;left:50%;width:400px;margin:-150px 0 0 -194px;padding:28px 28px 0 28px;border:2px solid #555;background:#fff;font-size:12px;font-family:Tahoma, Geneva, sans-serif;color:#767676;line-height:normal;white-space:normal}
+</style>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+jQuery(function($){
+var layerWindow = $('.mylayer');
+var layer = $('#layer');
+// Show Hide
+$('.layer_trigger').click(function(){
+	layerWindow.addClass('open');
+});
+$('#layer .close').click(function(){
+	layerWindow.removeClass('open');
+});
+// ESC Event
+$(document).keydown(function(event){
+	if(event.keyCode != 27) 
+		return true;
+	if (layerWindow.hasClass('open')) {
+		layerWindow.removeClass('open');
+	}
+return false;
+});
+// Hide Window
+layerWindow.find('>.bg').mousedown(function(event){
+	layerWindow.removeClass('open');
+		return false;
+	});
+});
+</script>
+</head>
+
+<body>
+
+<p><a href="#layer" class="layer_trigger">click</a></p>
+<div class="mylayer">
+	<div class="bg"></div>
+	<div id="layer">
+	I loved you, and I probably still do,
+	And for a while the feeling may remain...
+	But let my love no longer trouble you,
+	I do not wish to cause you any pain.
+	I loved you; and the hopelessness I knew,
+	The jealousy, the shyness - though in vain -
+	Made up a love so tender and so true
+	As may God grant you to be loved again.
+	<a href="#layer_anchor" title="layer close" class="close">close</a>
+	</div>
+</div>
+
+</body>
+
+</html>

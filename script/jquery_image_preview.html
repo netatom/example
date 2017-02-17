@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title>Image Preview</title>
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) { 
+                        $('#original').attr('src', e.target.result);
+                    }                    
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+            $("#imgefile").change(function(){
+                readURL(this);
+            });
+         });
+  </script>
+
+ </head>
+
+ <body>
+    <form id="form">
+        <input type='file' id="imgefile" /><br/>
+		<img id="original" src="#" width="300" height="400" border="0" align="left">
+    </form>
+ </body>
+</html>
