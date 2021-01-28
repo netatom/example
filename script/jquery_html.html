@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-2.2.1.js"></script>
+ </head>
+ <body>
+    <div id="wallet_address"></div>
+    <div id="wallet_balance"></div>
+ </body>
+</html>
+
+<script>
+$(document).ready(function() {
+        // console.log($('#wallet_address'));
+        console.log($('#wallet_address').attr('id'));
+        // $('#wallet_address').attr('id','qq'); // id값을 qq로 변환
+        // console.log($('#qq').attr('id')); // qq인 id를 찾음
+
+        $('#wallet_address').html('주소'); // text값을 qq로 변환
+        $('#wallet_balance').html('값'); // text값을 qq로 변환
+    });
+</script>

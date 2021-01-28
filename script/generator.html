@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+      function* gen(){
+          console.log('s1');
+          for(let i=0; i<3; i++){
+              yield i;
+          }
+      }
+      let my_g = gen();
+
+      console.log('start');
+      for(let test of my_g){
+          console.log(test);
+      }
+      console.log('end');
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

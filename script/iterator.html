@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+      // my_iterator라는 상수 선언
+      let my_iterator = {
+          i:0,
+          [Symbol.iterator]: function() {
+                console.log('s1');
+              return this;
+          },
+          next:function() {  
+                console.log('s2');
+            result = (this.i <3) ? {value:this.i++, done:false} : {value:undefined, done:true};
+            console.log(result);
+            return result;
+          }
+      }
+      // 여기서실행
+      console.log('start');
+      for(let value of my_iterator) {
+          console.log(value);
+      }
+      console.log('end');
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

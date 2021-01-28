@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+        var myfunction = (function() {  
+            var id = 'my_id';
+            
+            // salary private
+            var salary = 300;
+            var taxSalary = 30;
+            var paySalary = function() {
+                return salary - taxSalary;
+            };
+
+            // Bonus private
+            var Bonus = 100;
+            var taxBonus = 10;
+            var payBonus = function() {
+                Bonus = Bonus - taxBonus;
+                return Bonus;
+            };
+            
+            // Public 속성, 메소드
+            return {
+                id : id,
+                paySalary : paySalary,
+                payBonus : payBonus
+        };
+    }());
+
+    // id 속성은 public
+    console.log(myfunction.id); 
+
+    // 변수는 즉시실행함수 내부 변수이므로 private
+    console.log(myfunction.salary); // undefined 출력
+    console.log(myfunction.taxSalary); // undefined 출력
+    console.log(myfunction.Bonus); // undefined 출력
+    console.log(myfunction.taxBonus); // undefined 출력
+
+    // paySalary 메소드는 public
+    console.log(myfunction.paySalary()); // 270 출력
+    console.log(myfunction.paySalary()); // 270 출력
+
+    // payBonus 메소드는 public
+    console.log(myfunction.payBonus()); // 90 출력  
+    console.log(myfunction.payBonus()); // 80 출력  
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+  function tagged(str, a, b){
+		let bigger;
+		(a>b) ? bigger = 'a' : bigger = 'b'; // 변수값에 컨디션을 적용해서 참이면 첫번째 거짓이면 두번째값 반환
+		return str[0] + bigger + ' from between a and b ';
+	  }
+	  let a = 100;
+	  let b = 200;
+	  let str = tagged `Bigger is ${a}, ${b}`;
+	  console.log(str);
+
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

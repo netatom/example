@@ -1,0 +1,19 @@
+<!-- 구글 리캡챠 -->
+<div class="g-recaptcha" data-sitekey="Your Key" data-type="image"></div>
+
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#submitBtn").click(function(){        
+        if (grecaptcha.getResponse() == ""){ 
+			alert("리캡챠를 체크해 주세요"); 
+			return false; 
+		} else { 
+			$("#frmWrite").submit(); // Submit the form if it exist
+			// console.log(grecaptcha.getResponse());
+			return true;
+		} 
+    });
+});
+</script> 

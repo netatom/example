@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script>
+        var j = function(qq) {  
+            console.log(qq);
+        };
+        j('test');
+
+        (function(tt) {
+            console.log(tt);
+        }('test2'));
+
+        (function($) {
+            // 함수 스코프 내에서 $는 jQuery Object임.
+            console.log($);
+        }(jQuery));
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

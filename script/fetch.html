@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+        fetch('https://hacker-news.firebaseio.com/v0/item/8863.json')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            console.log("title: ",data.title)
+            console.log("by: ",data.by)
+            console.log("type: ",data.type)
+        })
+        .catch(error => console.log(error))
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

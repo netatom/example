@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+    console.log("s1");
+    // iterator 변수 선언
+    let iterator = {
+        i:0,
+        [Symbol.iterator]:function(){
+            console.log("s2");
+            // console.dir(this);
+            // console.log(this.i);
+            // console.log(this.next);
+            return this;
+        },
+        next:function(){
+            return {value:undefined, done:true}
+            console.log("s3");
+        }
+    }
+    console.log("s4");
+
+    // iterator2 변수 선언
+    let iterator2 = {
+        i:0,
+        [Symbol.iterator]:function(){
+            console.log("s5"); 
+            return this;
+        },
+        next:function(){ 
+            // console.log(this.i); 
+            return (this.i <5) ? {value:this.i++, done:false} : {value:undefined, done:true}
+            }
+    }
+
+    // iterator3 변수 선언
+    let iterator3 = {
+        i:5,
+        [Symbol.iterator]:function(){
+            console.log("s6"); 
+            return this;
+        },
+        next:function(){ 
+            // console.log(this.i); 
+            return (this.i <10) ? {value:this.i++, done:false} : {value:undefined, done:true}
+            }
+    }
+
+    // iterator 변수 호출
+    for(let value of iterator) {
+        console.log(value);
+    }
+    // iterator2 변수 호출
+    for(let value of iterator2) {
+        console.log(value);
+    }
+    // iterator3 변수 호출
+    for(let value of iterator3) {
+        console.log(value);
+    }
+    </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

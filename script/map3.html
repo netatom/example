@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+        const even = [2, 4, 6, 8, 10, 12, 14]
+        const odd  = even.map(n => n + 1)
+        console.log("even number: ", even)	// [2, 4, 6, 8, 10, 12, 14]
+        console.log("odd number: ", odd)	// [3, 5, 7, 9, 11, 13, 15]
+
+        const num  = even.map((n, i) => n)	// map(crruentValue, index, array)
+        const num2  = even.map((n, i) => i)	// map(crruentValue, index, array)
+        const num3  = even.map((n, i) => n + i)	// map(crruentValue, index, array)
+        console.log("number is: ", num)	// [2, 4, 6, 8, 10, 12, 14]
+        console.log("index is: ", num2)	// [2, 4, 6, 8, 10, 12, 14]
+        console.log("number + index is: ", num3)	// [2, 5, 8, 11, 14, 17, 20]
+
+        const hap = ([a, b] = [1, 2], {x: c} = {x: a + b}) => a + b + c;
+        console.log("hap is: ", hap())	//	6
+
+        const su = ([a, b] = [1, 2])
+        console.log("a, b are: ", su)
+
+        const su2 = ({x: c} = {x: a + b})
+        console.log("x is: ", su2)
+        
+        const su3 = (su, su2) => a + b + c;
+        console.log("su3 is: ", su3())
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

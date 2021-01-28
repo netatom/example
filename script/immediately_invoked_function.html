@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+        // 함수표현식에 의한 명시적인 함수호출
+        var app = function() {  
+            console.log('함수 호출1'); // "함수 호출" 출력
+        };
+        console.log(app);
+        app();  
+    
+        // 즉시실행함수
+        (
+            function() {
+                console.log('함수 호출2'); // "함수 호출" 출력
+            }
+            ()
+        );
+
+        // 즉시실행함수2
+        (function() {
+            console.log('함수 호출3'); // "함수 호출" 출력
+        }());
+
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

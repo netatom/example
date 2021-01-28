@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+        function NumberEx() {
+            var that = this
+            console.log(this)
+            console.log(that)
+            that.num = 0;
+
+            setInterval(function add() {
+                that.num++;
+                console.log(that.num);
+            }, 10000);
+        }
+
+        NumberEx();
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

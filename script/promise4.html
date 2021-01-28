@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+        // promise: pending(대기), fulfilled(이행), reject(실패)
+        function getData() {
+                return new Promise(function (resolve, reject) {
+                        const data = "success" 
+                        resolve(data)
+                        reject('false')
+                    }
+                )
+        }
+
+        function getData2() {
+                s = new Promise(function (resolve, reject) {
+                        const data = "success2" 
+                        resolve(data)
+                        reject('false2')
+                    }
+                )
+                return s 
+        }
+
+        function getData3() {
+                xs = new Promise(function (resolve, reject) { 
+                        console.log(this)
+                        // reject('false3') 
+                    }
+                )
+                return xs
+        }
+
+        getData().then(function (resolvedData) {
+            console.log(resolvedData)
+        }).catch(function (err) {
+            console.error(err)
+        })
+
+        getData2().then(function (resolvedData) {
+            console.log(resolvedData)
+        })
+
+        getData3()
+
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

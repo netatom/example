@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+        class Shape {
+            constructor() {
+                const squares = [1, 2, 3].map(x => x * x) 
+                console.log("init squares: ", squares)
+            }
+        }
+
+        class Rectangle extends Shape {
+            constructor(w, h) {
+                super(w, h)
+                this.w = 10
+                this.h = 20
+                console.log(this.w)
+                console.log(this.h)
+            }
+            i=100    
+            getArea(w, h) {
+                console.log(w)
+                console.log(h)
+                return w * h
+            }
+            
+            // get, set, static 예약어로 메서드를 설정할 수 있음
+        }
+
+        console.log("start")
+        let rect = new Rectangle()
+        // console.log(rect.constructor)
+        console.log(rect)
+        console.log(rect.i)	// 100
+        console.log(rect.getArea(30, 40))	// 1200
+        console.log("end")
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

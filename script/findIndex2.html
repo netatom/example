@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+    var numbers = [4, 9, 16, 25, 29];
+    var first = numbers.find(myFunction);
+    var second = numbers.findIndex(myFunction);
+
+    function myFunction(value, index, array) {
+        return value > 20;
+    }
+    
+    console.log("first over 20 number is:  ",first);
+    console.log("first over 20 index is: ", second);
+  </script>
+ </head>
+ <body>
+ </body>
+</html>

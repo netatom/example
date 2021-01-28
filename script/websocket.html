@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title></title>
+<script language="javascript" type="text/javascript">
+
+    var wsUri = "ws://echo.websocket.org/";
+    var output;
+
+    function init()
+    {
+        output = document.getElementById("output");
+        testWebSocket();
+    }
+
+    function testWebSocket()
+    {
+        WebSocket = new WebSocket(wsUri);
+        WebSocket.onopen = function(evt) { onOpen(evt) ;};
+        WebSocket.onclose = function(evt) { onClose(evt) ;};
+        WebSocket.onmessage = function(evt) { onMessage(evt) ;};
+        WebSocket.onerror = function(evt) { onError(evt) ;};
+    }
+
+    function onOpen(evt)
+    {
+        writeToScreen("연결완료");
+        doSend("나의 메세지");
+    }
+
+    function onClose(evt)
+    {
+        writeToScreen("연결해제");
+    }
+
+    function onMessage(evt)
+    {
+        writeToScreen('<span style="color: blue;">수신: ' + evt.data+ '</span>');
+        WebSocket.close();
+    }
+
+    function onError(evt)
+    {
+        writeToScreen('<span style="color: blue;">에러: ' + evt.data+ '</span>');
+    }
+
+    function doSend(message)
+    {
+        writeToScreen("발신: " + message);
+        WebSocket.send(message);
+    }
+
+    function writeToScreen(message)
+    {
+        var pre  = document.createElement("P");
+        pre.style.wordWrap = "break-down";
+        pre.innerHTML = message;
+        output.appendChild(pre);
+    }
+
+    window.addEventListener("load", init, false);
+
+
+</script>
+</head>
+<body>
+    <h2>websocket Test</h2>
+    <div id="output"></div>
+</body>
+</html>

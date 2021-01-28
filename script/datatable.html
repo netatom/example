@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <title>데이타테이블</title>
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" type="text/css"/>
+
+  <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+  
+ </head>
+ <body>
+  <table id="example" style="width: 100%;">
+    <thead>
+        <tr>
+            <th>title 1</th>
+            <th>title 2</th>
+            <th>title 3</th>
+            <th>title 4</th>
+            <th>title 5</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>content 1</td>
+            <td>content 2</td>
+            <td>content 3</td>
+            <td>content 4</td>
+            <td>content 5</td>
+        </tr>
+        <tr>
+            <td>content 1</td>
+            <td>content 2</td>
+            <td>content 3</td>
+            <td>content 4</td>
+            <td>content 5</td>
+        </tr>
+        <tr>
+            <td>content 1</td>
+            <td>content 2</td>
+            <td>content 3</td>
+            <td>content 4</td>
+            <td>content 5</td>
+        </tr>
+        <tr>
+            <td>content 1</td>
+            <td>content 2</td>
+            <td>content 3</td>
+            <td>content 4</td>
+            <td>content 5</td>
+        </tr>
+        <tr>
+            <td>content 1</td>
+            <td>content 2</td>
+            <td>content 3</td>
+            <td>content 4</td>
+            <td>content 5</td>
+        </tr>
+        <tr>
+            <td>content 1</td>
+            <td>content 2</td>
+            <td>content 3</td>
+            <td>content 4</td>
+            <td>content 5</td>
+
+        </tr>
+        <tr>
+            <td>content 1</td>
+            <td>content 2</td>
+            <td>content 3</td>
+            <td>content 4</td>
+            <td>content 5</td>
+        </tr>
+        <tr>
+            <td>content 1</td>
+            <td>content 2</td>
+            <td>content 3</td>
+            <td>content 4</td>
+            <td>content 5</td>
+        </tr>
+        <tr>
+            <td>content 1</td>
+            <td>content 2</td>
+            <td>content 3</td>
+            <td>content 4</td>
+            <td>content 5</td>
+        </tr>
+        <tr>
+            <td>content 1</td>
+            <td>content 2</td>
+            <td>content 3</td>
+            <td>content 4</td>
+            <td>content 5</td>
+        </tr>
+        <tr>
+            <td>content 1</td>
+            <td>content 2</td>
+            <td>content 3</td>
+            <td>content 4</td>
+            <td>content 5</td>
+        </tr>
+        <tr>
+            <td>content 1</td>
+            <td>content 2</td>
+            <td>content 3</td>
+            <td>content 4</td>
+            <td>content 55</td>
+        </tr>
+    </tbody>
+  </table>
+
+
+ 
+ </body>
+</html>
+
+<script>
+    $(function () {
+        $("#example").DataTable(
+            {
+                "dom" : '<"top"lf>rt<"bottom"ip>',
+                "paging" : true, // 페이징
+                "ordering" : true, // 정렬
+                "info" : true, // 검색창
+                "lengthChange" : true, // 블록 단위 변경 기능
+                "order" : [[0, "desc"]] // 기본 컬럼 정렬
+            }
+        );
+    });
+</script>
