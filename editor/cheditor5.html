@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link rel="stylesheet" type="text/css" href="editor.css" />
+<title>CHEditor 데모</title>
+<script src="cheditor5/cheditor.js"></script>
+<script src="set_cheditor.js"></script>
+</head>
+<body>
+
+<div id="container">
+<div class="side-menu-title">소프트웨어</div>
+
+<div id="ctx">
+<div id="nav_line">소프트웨어 / <span class="nav_line_eng">CHEditor / Demo</span></div>
+<div id="contents">
+<textarea id="fm_post" name="fm_post"></textarea>
+<script>
+myeditor.run();
+function setBodyAttr(show) {
+    const body = myeditor.doc.body;
+    if (show) {
+        body.style.backgroundImage = "url('./icons/placeholder-msg.png')";
+        body.style.backgroundRepeat = "no-repeat";
+        body.style.backgroundPosition = "1px 1px";
+    } else {
+        body.style.backgroundPosition = "-100px -100px"
+    }
+}
+function setPlaceHolder(mutation) {
+    let bShowPlaceholder = true,
+        textLength = myeditor.inputLength();
+
+    if (textLength < 1) {
+        if (mutation.type === 'childList') {
+            const walker = myeditor.doc.createTreeWalker(
+                myeditor.doc.body,
+                NodeFilter.SHOW_ELEMENT, node => {
+                    return NodeFilter.FILTER_ACCEPT;
+                },
+                false
+            );
+            while (walker.nextNode()) {
+                let nName = walker.currentNode.nodeName;
+                if (nName === 'IMG' || nName === 'TABLE') {
+                    bShowPlaceholder = false;
+                    break;
+                }
+            }
+        }
+    } else {
+        bShowPlaceholder = false;
+    }
+    setBodyAttr(bShowPlaceholder);
+};
+const clearTimeEvent = setTimeout(() => {
+    const options = {
+        childList: true,
+        attributes: false,
+        characterData: true,
+        subtree: true
+    };
+    if (myeditor.doc) {
+        const textArea = document.getElementById(myeditor.inputForm);
+        if (!textArea.value.length) {
+            myeditor.observer = new MutationObserver(cb => {
+                setTimeout(() => {
+                    setPlaceHolder(cb[0]);
+                }, 50);
+            });
+            myeditor.observer.observe(myeditor.doc.body, options);
+            setBodyAttr(true);
+        }
+        clearTimeout(clearTimeEvent);
+    }
+}, 100);
+</script>
+
+<div style="text-align: center; margin-top:30px">
+	<div class="button" onclick="getHtmlContent()"><span>전체 내용</span></div>
+	<div class="button" onclick="getBodyContent()"><span>BODY 내용</span></div>
+	<div class="button" onclick="getTextContent()"><span>TEXT만</span></div>
+	<div class="button" onclick="getImages()"><span>이미지 정보</span></div>
+</div>
+
+</body>
+</html>
