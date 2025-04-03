@@ -1,5 +1,0 @@
-<? 
-echo "
-\"double quotation\"
-" 
-?>
