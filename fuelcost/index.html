@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+	<title>연료비 계산기</title>
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function () {
+		$('form').submit(function () {
+		var data = $(this).serialize();
+		if (document.myform.fuel1.value == "") {
+			alert('자동차 A 연료가격을 입력하세요');
+			document.myform.fuel1.focus();
+			return false;
+		} else if (document.myform.fuel2.value == "") {
+			alert('자동차 B 연료가격을 입력하세요');
+			document.myform.fuel2.focus();
+			return false;
+		} else if (document.myform.gasmilage1.value == "") {
+			alert('자동차 A 연비를 입력하세요');
+			document.myform.gasmilage1.focus();
+			return false;
+		} else if (document.myform.gasmilage2.value == "") {
+			alert('자동차 B 연비 입력하세요');
+			document.myform.gasmilage2.focus();
+			return false;
+		} else if (document.myform.average_work.value == "") {
+			alert('주행거리를 입력하세요');
+			document.myform.average_work.focus();
+			return false;
+		} else {
+		document.myform.action = "result.html";
+		document.myform.submit();
+		}
+		});
+	});
+
+	 function showKeyCode(event) {
+            event = event || window.event;
+            var keyID = (event.which) ? event.which : event.keyCode;
+            if( ( keyID >=48 && keyID <= 57 ) || ( keyID >=96 && keyID <= 105 ) || keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 )
+            {
+                return;
+            }
+            else
+            {
+                return false;
+            }
+        }
+	</script>
+</head>
+<body>
+    <div class="content">
+    <article>
+    	<h2 class="underline">자동차 연료비 비교</h2>
+		
+			<form name="myform" id="myform" class="label-top">
+			    <div>
+					<h4>연료가격</h4>
+			         <label for="name">
+						자동차 A <input type="text" name="fuel1" onkeydown="return showKeyCode(event)"/>
+						자동차 B <input type="text" name="fuel2" onkeydown="return showKeyCode(event)"/>
+					 </label>
+			    </div>
+				
+			    <div>
+					<h4>연비</h4>
+			         <label for="name">
+						자동차 A <input type="text" name="gasmilage1" onkeydown="return showKeyCode(event)"/>
+						자동차 B <input type="text" name="gasmilage2" onkeydown="return showKeyCode(event)"/>
+					 </label>
+			    </div>
+				
+			    <div>
+					<h4>평균주행거리</h4>
+			         <label for="subject">
+						 <select name="average_work_stand">
+							<option value="day">일</option>
+							<option value="month">월</option>
+							<option value="year">년</option>
+						</select>
+						&nbsp;&nbsp;<input type="text" name="average_work" onkeydown="return showKeyCode(event)"/>
+						운행기간
+						<input type="text" name="running" value="1" onkeydown="return showKeyCode(event)"/>
+					 </label>
+			    </div>
+		
+				<nav class="vertical menu">
+				    <ul>
+						<li><a href="#" onclick="$(this).closest('form').submit()">Submit</a></li>
+						<li><a href="index.html">Reset</a></li>
+					</ul>
+			    </nav>
+				
+			</form>
+    </article>
+    </div>	
+</body>
+</html>
+
